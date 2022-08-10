@@ -28,7 +28,7 @@ export const buildItems = (results: any[]): Array<Item> => {
           currency: currency_id,
           decimals: ((price % 1) * 100).toFixed(0)
         },
-        picture: `http://http2.mlstatic.com/D_${thumbnail_id}-L.jpg`,
+        picture: `http://http2.mlstatic.com/D_${thumbnail_id}-I.jpg`,
       }
       return item;
     }

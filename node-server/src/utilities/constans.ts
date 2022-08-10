@@ -1,6 +1,6 @@
 export const ApiSetting = {
     port: 8080,
-    cors: ['*']
+    cors: ['http://localhost:3000']
 }
 
 export const Messages = {
