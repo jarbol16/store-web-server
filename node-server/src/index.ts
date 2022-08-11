@@ -13,5 +13,5 @@ app.use(cors({
 app.use('/api/items', items);
 
 app.listen(PORT, () => {
-    console.log(`Server MercadoLibre running on port ${PORT}`)
+    console.log(`Server MercadoLibre running on port ${PORT} 🚀`)
 })

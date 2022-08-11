@@ -5,17 +5,18 @@ interface Props {
   setValue: Function
 }
 
+/**
+ * Componente de barra de busqueda
+ */
 const SearchBar: FC<Props> = ({ setValue }) => {
   const [query, setQuery] = useState("");
 
   const handleChange = useCallback((text: React.ChangeEvent<HTMLInputElement>) => {
     setQuery(text.target.value);
-    console.log(text.target.value);
   },[]);
 
   const handleSubmit = (event: React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
-    console.log("Presioando", query);
     setValue(query);
   }
 

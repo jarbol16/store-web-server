@@ -38,7 +38,7 @@ export const buildItems = (results: any[]): Array<Item> => {
 }
 
 /**
- * 
+ * Funcion para adaptar la respuesta de mercado libre a la api 
  * @param itemId odentificador del producto
  * @returns un item completo
  */

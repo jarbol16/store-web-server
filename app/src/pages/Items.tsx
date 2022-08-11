@@ -17,9 +17,13 @@ const Items = () => {
    * Consulta asincrona de los items de la api
    */
   const getItems = async () => {
-    const _ = await axios.get(`${Apis.UrlBase}items?q=${searchParams.get("search")}`);
-    console.log("DATAAAAA", _)
-    setProducts(_.data.items);
+    try {
+      setLoading(true);
+      const _ = await axios.get(`${Apis.UrlBase}items?q=${searchParams.get("search")}`);
+      setProducts(_.data.items);
+    } catch (error) {
+      console.error(error);
+    }
   }
 
   useEffect(() => {
@@ -40,18 +44,22 @@ const Items = () => {
 
   return (
     <PageLayout breadcrumb={"Miga de Pan"}>
-      <div>
-        <div>
-        <small>{initInformation.information}</small>
-        </div>
-        <div className="container__card">
-            {
-              products?.map((item: Item) => {
-                return <CardItem {...item} key={item?.id}/>
-              })
-            }
-        </div>
-      </div>
+      {
+        loading ? (<div className="center">Cargando ...</div>) : <>
+          {products.length > 0 ? (<div>
+            <div className="message__header">
+              <small>{initInformation.information}</small>
+            </div>
+            <div className="container__card">
+              {
+                products?.map((item: Item) => {
+                  return <CardItem {...item} key={item?.id} />
+                })
+              }
+            </div>
+          </div>) : (<div className="center">No se encontraron productos relacionados con: <strong> {searchParams.get("search")}</strong></div>)}
+        </>
+      }
     </PageLayout>
   )
 }

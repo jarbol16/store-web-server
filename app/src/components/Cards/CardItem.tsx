@@ -19,7 +19,9 @@ const CardItem: FC<Item> = ({ condition, free_shipping, id, picture, price, titl
       </div>
       <div className="card__information">
         <div className="card__information__title">
-          <label><strong>{currencyFormat(price.currency)}  {price.amount}.{price.decimals}</strong> </label>
+          <label><strong>{currencyFormat(price.currency)}  { parseInt(price.amount).toLocaleString("de-DE")}</strong>
+            {parseInt(price.decimals) > 0 ? <sup>{price.decimals}</sup>: undefined}
+          </label>
           {free_shipping && <img className="icon" src={shipping} alt={"shipping"} />}
         </div>
         <span>{title}</span>

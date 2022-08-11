@@ -50,3 +50,16 @@ body {
     color: gray;
   }
 }
+
+.message__header{
+  text-align: end;
+  color: gray;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 300px;
+  width: 100%;
+}
