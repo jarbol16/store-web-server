@@ -48,5 +48,10 @@ const currencyFormat = (currencyId: string): string => {
   }
 };
 
+//Funcion para unir un arry de string
+const joinArray = (separartor: string, array: string[]) => {
+  return array.join(separartor);
+}
 
-export { encodeString, currencyFormat }
+
+export { encodeString, currencyFormat, joinArray }

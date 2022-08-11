@@ -4,19 +4,20 @@ import { useParams } from 'react-router-dom';
 import PageLayout from "../components/Layout/PageLayout";
 import { FullItem } from "../utilities/interfaces";
 import { Apis } from "../utilities/statics";
-import { currencyFormat } from "../utilities/utilities";
+import { currencyFormat, joinArray } from "../utilities/utilities";
 
 const ItemDetails = () => {
   const params = useParams();
   const [itemDetail, setItemDetail] = useState<FullItem>();
   const [loading, setLoading] = useState(false);
+  const [categories, setCategories] = useState<Array<string>>([]);
 
   const getItemDetails = async () => {
     try {
       setLoading(true);
       const _ = await axios.get(`${Apis.UrlBase}items/${params.id}`)
+      setCategories(_.data.categories);
       setItemDetail(_.data.item);
-      console.log("item", _);
     } catch (error) {
       setLoading(false);
       console.error(error);
@@ -30,7 +31,7 @@ const ItemDetails = () => {
   }, [])
 
   return (
-    <PageLayout breadcrumb="datelle">
+    <PageLayout breadcrumb={joinArray(" > ", categories)}>
       {loading ?
         (<div className="center">Cargando ...</div>) : <>
           {itemDetail ? (
@@ -41,7 +42,7 @@ const ItemDetails = () => {
               </figure>
               <div className="details__row">
                 <small>
-                  {itemDetail?.condition == "new" ? "Nuevo - " : "Usado - "}
+                  {itemDetail?.condition === "new" ? "Nuevo - " : "Usado - "}
                   {itemDetail?.sold_quantity} Vendidos
                 </small>
                 <h3>
@@ -63,11 +64,6 @@ const ItemDetails = () => {
             </article>
           ) : (<div className="center">No hay infromacion del producto:<strong>{params.id}</strong></div>)}
         </>
-
-
-
-
-
       }
 
     </PageLayout>

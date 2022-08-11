@@ -9,6 +9,7 @@ export const Messages = {
 
 export const Urls = {
     getItems: "https://api.mercadolibre.com/sites/MLA/search",
-    baseItems: "https://api.mercadolibre.com/items/"
+    baseItems: "https://api.mercadolibre.com/items/",
+    categories: "https://api.mercadolibre.com/categories/" 
 
 }

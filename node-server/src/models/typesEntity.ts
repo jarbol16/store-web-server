@@ -32,4 +32,5 @@ export interface SearchResponse {
 export interface SearchByIdResponse {
   autor: Author;
   item: Item;
+  categories: string[];
 }
