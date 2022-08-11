@@ -13,7 +13,7 @@ const CardItem: FC<Item> = ({ condition, free_shipping, id, picture, price, titl
       <div className="card__image">
         <img
           src={picture}
-          alt={'picture'}
+          alt={'Imagen minieatura producto'}
           className={'image'}
         />
       </div>

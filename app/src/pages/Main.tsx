@@ -11,7 +11,7 @@ const Main = () => {
    * @param text 
    */
   const searchText = (text: string) => {
-    window.location.href = `./items?search=${encodeString(text)}`
+    window.location.href = `/items?search=${encodeString(text)}`
   }
 
   return (

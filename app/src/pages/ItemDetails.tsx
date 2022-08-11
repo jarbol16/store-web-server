@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { useParams } from 'react-router-dom';
 import PageLayout from "../components/Layout/PageLayout";
 import { FullItem } from "../utilities/interfaces";
@@ -12,7 +12,7 @@ const ItemDetails = () => {
   const [loading, setLoading] = useState(false);
   const [categories, setCategories] = useState<Array<string>>([]);
 
-  const getItemDetails = async () => {
+  const getItemDetails = useCallback(async () => {
     try {
       setLoading(true);
       const _ = await axios.get(`${Apis.UrlBase}items/${params.id}`)
@@ -22,13 +22,13 @@ const ItemDetails = () => {
       setLoading(false);
       console.error(error);
     }
-  }
+  }, [params])
 
   useEffect(() => {
     getItemDetails().then(() => {
       setLoading(false);
     })
-  }, [])
+  }, [getItemDetails])
 
   return (
     <PageLayout breadcrumb={joinArray(" > ", categories)}>
@@ -38,7 +38,7 @@ const ItemDetails = () => {
 
             <article key={itemDetail?.id} className="details">
               <figure className="details__figure">
-                <img src={itemDetail?.picture} alt={'picture'} className={'image'} />
+                <img src={itemDetail?.picture} alt={'imagen producto'} className={'image'} />
               </figure>
               <div className="details__row">
                 <small>

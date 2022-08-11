@@ -11,7 +11,7 @@ const Header: FC<Props> = ({setValue}) => {
     <div>
       <div className="banner" itemID="header">
         <div className="banner__content">
-          <a data-testid="Banner-logo" className="banner__link" href="https://www.mercadolibre.com.co/" title="Ir a Mercado Libre">
+          <a data-testid="Banner-logo" className="banner__link" href="http://localhost:3000/" title="Ir a Mercado Libre">
             <img className="banner__image" src={Logo} alt="Logo" />
           </a>
           <SearchBar setValue={setValue} />
