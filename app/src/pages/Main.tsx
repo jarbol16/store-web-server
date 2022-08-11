@@ -15,10 +15,10 @@ const Main = () => {
   }
 
   return (
-    <div>
+    <main>
       <Header setValue={searchText} key={'header_main'} />
       <RouterProducs />
-    </div>
+    </main>
   )
 }
 

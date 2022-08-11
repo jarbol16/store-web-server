@@ -10,6 +10,7 @@ import { Urls } from "../utilities/constans";
 export const buildItems = async (q: any): Promise<SearchResponse> => {
 
   const response = await axios.get(`${Urls.getItems}?q=${q}&limit=4`);
+  //Esto deberia ser tipado, pero dado que es la respuesta de Mercado Libre y peude ser variante, no le cree interface
   const results: any[] = response.data.results;
   const available_filters: any[] = response.data.available_filters;
   const filters: any[] = response.data.filters;
@@ -59,12 +60,10 @@ export const buildItems = async (q: any): Promise<SearchResponse> => {
     initCategory = initCategory[0].id;
 
     //Esta aPi no esta funcionado en varios casos, la ejecuto con varios Ids 
-    categories = await axios.get(
-      `${Urls.categories}${initCategory}`
-    );
-
     //convierto el array a array de strings
-    categories = categories.data.path_from_root.map((item: any) => item.name);
+    categories = (await axios.get(
+      `${Urls.categories}${initCategory}`
+    )).data.path_from_root.map((item: any) => item.name);
 
     //segun observe en la imagem la miga de pan tiene 5 categorias
     categories = categories.length > 5 ? categories.slice(-5) : categories;
@@ -106,12 +105,9 @@ export const buildItem = async (itemId: any): Promise<SearchByIdResponse> => {
   }
 
   //Categorias
-  let categories;
-  categories = await axios.get(
+  const categories = (await axios.get(
     `${Urls.categories}${data.category_id}`
-  );
-
-  categories = categories.data.path_from_root.map(
+  )).data.path_from_root.map(
     (item: any) => item.name
   );
 

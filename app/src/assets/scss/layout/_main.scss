@@ -46,14 +46,14 @@ body {
     margin: auto;
   }
 
-  h2 {
-    color: gray;
+  &__h1 {
+    color: $text-color-gray;
   }
 }
 
 .message__header{
   text-align: end;
-  color: gray;
+  color: $text-color-gray;
 }
 
 .center {

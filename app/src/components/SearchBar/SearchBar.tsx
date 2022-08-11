@@ -22,7 +22,9 @@ const SearchBar: FC<Props> = ({ setValue }) => {
 
   return (
     <form className="search__bar" >
+      <label htmlFor="searchInput">Buscar</label>
       <input
+        id="searchInput"
         itemID="searchInput"
         className="input"
         placeholder="Nunca dejes de buscar"

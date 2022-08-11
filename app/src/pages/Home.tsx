@@ -6,7 +6,7 @@ const Home = () => {
     <PageLayout breadcrumb={"Home"}>
       <div className="home">
         <div className="home__center">
-          <h2>Bienvenido a Mercado Libre</h2>
+          <h1 className="home__h1">Bienvenido a Mercado Libre</h1>
         </div>
       </div>
     </PageLayout>

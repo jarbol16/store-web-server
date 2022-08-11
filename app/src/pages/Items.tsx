@@ -46,18 +46,18 @@ const Items = () => {
     <PageLayout breadcrumb={joinArray(" > ",categories)}>
       {
         loading ? (<div className="center">Cargando ...</div>) : <>
-          {products.length > 0 ? (<div>
+          {products.length > 0 ? (<article>
             <div className="message__header">
               <small>{initInformation.information}</small>
             </div>
-            <div className="container__card">
+            <ul className="container__card">
               {
                 products?.map((item: Item) => {
                   return <CardItem {...item} key={item?.id} />
                 })
               }
-            </div>
-          </div>) : (<div className="center">No se encontraron productos relacionados con: <strong> {searchParams.get("search")}</strong></div>)}
+            </ul>
+          </article>) : (<div className="center">No se encontraron productos relacionados con: <strong> {searchParams.get("search")}</strong></div>)}
         </>
       }
     </PageLayout>

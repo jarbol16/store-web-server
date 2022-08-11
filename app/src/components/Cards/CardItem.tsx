@@ -9,12 +9,11 @@ const CardItem: FC<Item> = ({ condition, free_shipping, id, picture, price, titl
   const navigate = useNavigate();
 
   return (
-    <div className="card" onClick={() => navigate(`./${id}`)}>
+    <li className="card" onClick={() => navigate(`./${id}`)}>
       <div className="card__image">
         <img
           src={picture}
-          alt={'Imagen minieatura producto'}
-          className={'image'}
+          alt={`Imagen miniatura producto ${title}`}
         />
       </div>
       <div className="card__information">
@@ -22,11 +21,11 @@ const CardItem: FC<Item> = ({ condition, free_shipping, id, picture, price, titl
           <label><strong>{currencyFormat(price.currency)}  { parseInt(price.amount).toLocaleString("de-DE")}</strong>
             {parseInt(price.decimals) > 0 ? <sup>{price.decimals}</sup>: undefined}
           </label>
-          {free_shipping && <img className="icon" src={shipping} alt={"shipping"} />}
+          {free_shipping && <img className="card__information__icon" src={shipping} alt={"shipping"} />}
         </div>
-        <span>{title}</span>
+        <h3 className="card__information__h3">{title}</h3>
       </div>
-    </div>
+    </li>
   )
 }
 

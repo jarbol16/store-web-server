@@ -26,8 +26,15 @@
             display: flex;
         }
 
-        .icon {
+        &__icon {
             margin-left: 5px;
+        }
+
+        &__h3 {
+            color: $text-color-gray;
+            font-weight: 400;
+            margin: 0;
+            font-size: 1rem;
         }
     }
 

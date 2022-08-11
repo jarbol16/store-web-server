@@ -45,21 +45,20 @@ const ItemDetails = () => {
                   {itemDetail?.condition === "new" ? "Nuevo - " : "Usado - "}
                   {itemDetail?.sold_quantity} Vendidos
                 </small>
-                <h3>
+                <h1 className="details__row__h1">
                   {itemDetail?.title}
-                </h3>
+                </h1>
                 {
-                  itemDetail?.price && (<h1>
-                    <label>{currencyFormat(itemDetail?.price.currency)}  {parseInt(itemDetail.price.amount).toLocaleString("de-DE")}
-                      {parseInt(itemDetail?.price?.decimals) > 0 ? <sup>{itemDetail?.price?.decimals}</sup> : undefined}
-                    </label>
-                  </h1>)
+                  itemDetail?.price && (<h2 className="details__row__h2">
+                    {currencyFormat(itemDetail?.price.currency)}  {parseInt(itemDetail.price.amount).toLocaleString("de-DE")}
+                    {parseInt(itemDetail?.price?.decimals) > 0 ? <sup>{itemDetail?.price?.decimals}</sup> : undefined}
+                  </h2>)
                 }
-                <button>Comprar</button>
+                <button className="details__row__button">Comprar</button>
               </div>
               <div className="description">
-                <h1>Descripción del producto</h1>
-                <small>{itemDetail?.description}</small>
+                <h2 className="description__gray">Descripción del producto</h2>
+                <small className="description__gray">{itemDetail?.description}</small>
               </div>
             </article>
           ) : (<div className="center">No hay infromacion del producto:<strong>{params.id}</strong></div>)}
