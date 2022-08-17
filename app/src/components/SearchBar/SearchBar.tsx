@@ -25,13 +25,13 @@ const SearchBar: FC<Props> = ({ setValue }) => {
       <label htmlFor="searchInput">Buscar</label>
       <input
         id="searchInput"
-        itemID="searchInput"
+        data-testid="searchInput"
         className="input"
         placeholder="Nunca dejes de buscar"
         value={query}
         name="query"
         type={"search"} onChange={handleChange} />
-      <button onClick={handleSubmit}>
+      <button onClick={handleSubmit} data-testid="button-search">
         <img src={IconSearch} alt="" width="16px" aria-label="buscar" />
       </button>
     </form>
