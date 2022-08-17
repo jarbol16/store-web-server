@@ -18,7 +18,8 @@ npm run dev
 ```
 npm install
 npm start
-npm test
+npm test //pruebas unitarias
+npm run e2e // pruebas end-to-end
 ```
 ***El servicio se levantara en http://localhost:3000/***
 
@@ -39,10 +40,16 @@ npm test
 #### Se realiza otros procesos para validar Usabildiad y Accesibilidad
 ![Imagen de Usabilidad y Accesibilidad](https://github.com/jarbol16/store-web-server/blob/main/imagenes/Accesibilidad.PNG)
 
+
+## Pruebas (E2E)
+Se realizaron pocas, pero con estas se peude ver correctamente la carga y la integracion entre Frontend y Backend
+***Se realizaron utilizando Cypress, dado que es el mas usado por la comunidad y muy completo para el objetivo de estas pruebas***
+
+![Pruebas E2E](https://github.com/jarbol16/store-web-server/blob/main/imagenes/E2EByCypress.PNG)
+
 #### Procesos a mejorar
 ***Por temas de tiempo no pude tener mas cobertura de codigo***
 - Se pueden realizar mas pruebas unitarias
-- Se deben realizar algunas pruebas de integracion
 - El proceso de Server side rendering con node y express ya no es muy utilizado directamente, para esto es mas factible usar NextJs. No realice la configuracion de los archivos del webpack, pero se podrian crear y configurar sin problemas.
 
 
