@@ -21,7 +21,7 @@ const SearchBar: FC<Props> = ({ setValue }) => {
   }
 
   return (
-    <form className="search__bar" >
+    <form className="search__bar" data-testid="search-bar" >
       <label htmlFor="searchInput">Buscar</label>
       <input
         id="searchInput"

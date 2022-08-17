@@ -15,7 +15,7 @@ const Main = () => {
   }
 
   return (
-    <main>
+    <main data-testid="main">
       <Header setValue={searchText} key={'header_main'} />
       <RouterProducs />
     </main>

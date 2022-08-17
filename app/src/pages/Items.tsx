@@ -45,7 +45,7 @@ const Items = () => {
   return (
     <PageLayout breadcrumb={joinArray(" > ",categories)}>
       {
-        loading ? (<div className="center">Cargando ...</div>) : <>
+        loading ? (<div className="center" data-testid="items-loading">Cargando ...</div>) : <>
           {products.length > 0 ? (<article>
             <div className="message__header">
               <small>{initInformation.information}</small>
@@ -57,7 +57,7 @@ const Items = () => {
                 })
               }
             </ul>
-          </article>) : (<div className="center">No se encontraron productos relacionados con: <strong> {searchParams.get("search")}</strong></div>)}
+          </article>) : (<div className="center" data-testid="items-nodata">No se encontraron productos relacionados con: <strong> {searchParams.get("search")}</strong></div>)}
         </>
       }
     </PageLayout>
